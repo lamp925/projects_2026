@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>in 2026</title>
+<meta http-equiv="Cache-Control" content="no-store">
+<link rel="preconnect" href="https://cdn.jsdelivr.net/">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#384B60;
+  --blue:#5E92C4;
+  --sky:#BEDAFA;
+  --paper:#F8F7F2;
+  --white:#FCFBF9;
+  --ink-60:rgba(56,75,96,.62);
+  --ink-40:rgba(56,75,96,.40);
+  --ink-12:rgba(56,75,96,.12);
+  --line:rgba(56,75,96,.14);
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --serif:'Noto Serif KR','Noto Serif CJK KR',serif;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  background:var(--paper);color:var(--ink);
+  line-height:1.65;-webkit-font-smoothing:antialiased;
+  letter-spacing:-.015em;
+}
+a{color:inherit;text-decoration:none}
+body{user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+input,textarea,.modal,.modal *{user-select:text;-webkit-user-select:text;-webkit-touch-callout:default}
+img{-webkit-user-drag:none;user-drag:none;pointer-events:auto}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:2px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ── nav ── */
+.nav{position:fixed;top:0;left:0;right:0;height:60px;z-index:50;
+  background:rgba(248,247,242,.88);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);display:flex;align-items:center}
+.nav-in{width:100%;max-width:960px;margin:0 auto;padding:0 28px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px}
+.mark{font-family:var(--serif);font-size:20px;font-weight:600;letter-spacing:-.01em}
+.mark em{font-style:normal;font-weight:600;color:var(--ink)}
+.crumb{font-size:13px;color:var(--ink-40);display:flex;gap:8px;align-items:center;min-width:0}
+.crumb span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.crumb .on{color:var(--ink)}
+
+/* ── page ── */
+.page{display:none;padding-top:60px}
+.page.on{display:block;animation:in .45s var(--ease)}
+@keyframes in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.wrap{max-width:960px;margin:0 auto;padding:64px 28px 120px}
+.wrap.narrow{max-width:720px}
+
+/* ── hero ── */
+.hero{display:block;padding:40px 0 88px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:20px;color:var(--blue);font-weight:600;margin-bottom:18px}
+.eyebrow em{font-style:normal;color:var(--ink);font-weight:800}
+.title{font-family:var(--serif);font-size:clamp(54px,10vw,70px);line-height:1.02;
+  font-weight:600;letter-spacing:-.03em}
+.title em{font-style:normal;font-weight:600;color:var(--ink)}
+.lede{margin-top:26px;font-size:clamp(16px,2vw,20px);line-height:1.5;font-weight:500;white-space:nowrap}
+.sub{margin-top:18px;font-size:15px;color:var(--ink-60)}
+.hero .d-meta{margin-top:26px}
+
+/* ── section ── */
+.sec{padding:72px 0 0}
+.sec-h{font-size:13px;font-weight:700;color:var(--blue);margin-bottom:8px}
+.sec-t{font-size:24px;font-weight:700;letter-spacing:-.03em;margin-bottom:28px}
+.sec-row{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:28px}
+.sec-row .sec-t{margin-bottom:0}
+.linkgo{font-size:14.5px;font-weight:600;color:var(--blue);white-space:nowrap;
+  display:inline-flex;align-items:center;gap:6px;transition:gap .2s var(--ease)}
+.linkgo:hover{gap:11px}
+
+/* ── 역량 ── */
+.caps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cap{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:26px 24px;
+  display:flex;flex-direction:column;gap:14px}
+.cap-dot{width:26px;height:26px;border-radius:50%}
+.cap-n{font-size:17px;font-weight:700;letter-spacing:-.02em}
+.cap-d{font-size:14px;color:var(--ink-60);line-height:1.7}
+.cap-hr{height:1px;background:var(--line)}
+.cap-l{font-size:12px;font-weight:700;color:var(--blue)}
+.cap-u{font-size:14px;line-height:1.7}
+
+/* ── 버튼 ── */
+.go{display:inline-flex;align-items:center;gap:10px;margin-top:44px;
+  background:var(--ink);color:var(--paper);padding:15px 26px;border-radius:10px;
+  font-size:15px;font-weight:600;transition:background .2s var(--ease)}
+.go:hover{background:var(--blue)}
+.back{display:inline-flex;align-items:center;gap:7px;font-size:14px;color:var(--ink-60);
+  margin-bottom:34px;transition:color .2s var(--ease)}
+.back:hover{color:var(--blue)}
+
+/* ── 프로젝트 목록 ── */
+.list{display:flex;flex-direction:column;gap:14px;margin-top:36px}
+.item{background:var(--white);border:1px solid var(--line);border-radius:14px;
+  padding:30px 32px;display:grid;grid-template-columns:46px 1fr auto;gap:22px;align-items:center;
+  text-align:left;width:100%;transition:border-color .2s var(--ease),transform .2s var(--ease)}
+.item:hover{border-color:var(--blue);transform:translateX(4px)}
+.num{font-size:28px;font-weight:300;color:var(--sky)}
+.item h3{font-size:19px;font-weight:700;letter-spacing:-.025em;margin-bottom:7px}
+.item p{font-size:14px;color:var(--ink-60);line-height:1.6}
+.chips{display:flex;gap:6px;margin-top:13px;flex-wrap:wrap}
+.chip{font-size:12px;font-weight:600;padding:4px 10px;border-radius:20px;
+  background:rgba(190,218,250,.45);color:#2f5f92}
+.arrow{color:var(--ink-40);font-size:18px}
+
+/* ── 진행 중 ── */
+.now{margin-top:14px;border:1.5px dashed var(--ink-12);border-radius:14px;padding:28px 32px}
+.now-h{display:flex;align-items:center;gap:9px;font-size:20px;font-weight:700;letter-spacing:-.02em;margin-bottom:16px}
+.now-dot{width:8px;height:8px;border-radius:50%;background:var(--blue);flex:none;
+  animation:pulse 2s var(--ease) infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.8)}}
+.now ul{padding-left:18px}
+.now li{list-style:disc;font-size:14.5px;line-height:1.85;color:var(--ink-60)}
+.now li::marker{color:var(--sky)}
+
+/* ── 상세 ── */
+.d-head{padding-bottom:34px;border-bottom:2px solid var(--ink)}
+.d-tag{display:inline-block;font-size:12px;font-weight:700;color:var(--white);
+  background:var(--ink);padding:5px 11px;border-radius:5px;margin-bottom:18px}
+.d-title{font-size:clamp(26px,4.5vw,36px);font-weight:800;letter-spacing:-.035em;line-height:1.25}
+.d-sub{margin-top:14px;font-size:16px;color:var(--ink-60);line-height:1.7}
+.d-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.d-pill{font-size:12.5px;font-weight:600;border:1px solid var(--line);border-radius:20px;padding:5px 12px;color:var(--ink-60)}
+.d-pill.hi{border-color:var(--blue);color:var(--blue)}
+.blk{padding:40px 0;border-bottom:1px solid var(--line)}
+.blk-h{font-size:13px;font-weight:700;color:var(--blue);margin-bottom:14px}
+.blk-t{font-size:18px;font-weight:700;letter-spacing:-.025em;line-height:1.45;margin-bottom:12px}
+.blk-l{margin:14px 0 0;padding-left:20px}
+.blk-l li{list-style:disc;font-size:15px;line-height:1.8;color:var(--ink-60);margin-top:8px}
+.blk-l li:first-child{margin-top:0}
+.blk p{font-size:15.5px;line-height:1.85;margin-bottom:14px}
+.blk p:last-child{margin-bottom:0}
+.blk b{font-weight:700}
+.steps{counter-reset:s;margin:18px 0 4px;display:flex;flex-direction:column;gap:28px}
+.step{counter-increment:s;position:relative;padding-left:38px;font-size:15.5px;line-height:1.7}
+.step::before{content:counter(s);position:absolute;left:0;top:1px;width:25px;height:25px;
+  border-radius:50%;background:var(--sky);color:#2f5f92;font-size:13px;font-weight:700;
+  display:flex;align-items:center;justify-content:center}
+.step-t{font-size:16.5px;font-weight:700;letter-spacing:-.02em;line-height:1.5}
+.step-d{margin-top:8px;padding-left:18px;font-size:14.5px;color:var(--ink-60);line-height:1.75}
+.step-d li{list-style:disc;margin-top:6px}
+
+/* 링크 */
+.links{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.file-ic.link{background:var(--ink)}
+
+/* 비교 표 */
+.tbl-wrap{margin-top:20px;overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--white)}
+.tbl{width:100%;min-width:560px;border-collapse:collapse;font-size:13.5px;line-height:1.65}
+.tbl th{background:var(--ink);color:var(--paper);font-weight:700;text-align:left;padding:12px 14px;white-space:nowrap}
+.tbl th:nth-child(3){background:var(--blue)}
+.tbl td{padding:13px 14px;border-top:1px solid var(--line);vertical-align:top;color:var(--ink-60)}
+.tbl td:first-child{font-weight:700;color:var(--ink);white-space:nowrap;width:1%}
+.tbl td:nth-child(3){color:var(--ink);background:rgba(190,218,250,.18)}
+
+/* 슬라이드 */
+.sl{margin-top:16px}
+.sl-view{position:relative;aspect-ratio:16/9;background:var(--white);border:1px solid var(--line);
+  border-radius:10px;overflow:hidden;touch-action:pan-y}
+.sl-track{display:flex;height:100%;transition:transform .45s var(--ease)}
+.sl-track img{flex:0 0 100%;width:100%;height:100%;object-fit:contain;cursor:zoom-in;user-select:none;-webkit-user-drag:none}
+.sl-btn{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;
+  background:rgba(56,75,96,.72);color:#fff;font-size:18px;display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .2s var(--ease),background .2s var(--ease)}
+.sl-view:hover .sl-btn,.sl-btn:focus-visible{opacity:1}
+.sl-btn:hover{background:var(--blue)}
+.sl-btn:disabled{opacity:0!important;pointer-events:none}
+.sl-prev{left:12px}.sl-next{right:12px}
+.sl-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:10px}
+.sl-dots{display:flex;gap:6px;flex-wrap:wrap}
+.sl-dot{width:7px;height:7px;border-radius:50%;background:var(--ink-12);padding:0;transition:background .2s,width .2s}
+.sl-dot.on{background:var(--blue);width:18px;border-radius:4px}
+.sl-count{font-size:12.5px;color:var(--ink-40);font-variant-numeric:tabular-nums;white-space:nowrap}
+@media (hover:none){.sl-btn{opacity:1}}
+
+/* 첨부 파일 */
+.files{display:flex;flex-direction:column;gap:12px;margin-top:14px}
+.file-a{display:flex;align-items:center;gap:12px;padding:13px 16px;border:1px solid var(--line);
+  border-radius:10px;background:var(--white);font-size:14px;font-weight:600;color:var(--ink);
+  transition:border-color .2s var(--ease)}
+.file-a:hover{border-color:var(--blue);color:var(--blue)}
+.file-ic{flex:none;font-size:11px;font-weight:800;color:#fff;background:var(--blue);
+  padding:3px 7px;border-radius:4px;letter-spacing:.02em}
+.file-go{margin-left:auto;font-size:13px;color:var(--ink-40);font-weight:500}
+.file-v{width:100%;height:520px;border:1px solid var(--line);border-radius:10px;background:var(--white)}
+
+/* 이미지 */
+.shots{display:flex;flex-direction:column;gap:14px;margin-top:14px}
+.shot{margin:0}
+.shot button{display:block;width:100%;padding:0;border:1px solid var(--line);border-radius:10px;
+  overflow:hidden;background:var(--white);cursor:zoom-in;transition:border-color .2s var(--ease)}
+.shot button:hover{border-color:var(--blue)}
+.shot img{display:block;width:100%;height:auto}
+.shot figcaption{font-size:12.5px;color:var(--ink-40);margin-top:6px}
+.lb{position:fixed;inset:0;z-index:120;background:rgba(30,40,52,.88);display:none;
+  align-items:center;justify-content:center;padding:28px;cursor:zoom-out}
+.lb.on{display:flex;animation:in .2s var(--ease)}
+.lb img{max-width:100%;max-height:100%;border-radius:8px;background:#fff}
+.lb .x{color:#fff;top:18px;right:22px;font-size:28px}
+
+.quote{border-left:3px solid var(--sky);padding:4px 0 4px 18px;margin:18px 0;
+  font-size:15.5px;line-height:1.8;color:var(--ink-60)}
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:20px}
+.fig{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:20px 18px}
+.fig-v{font-size:23px;font-weight:800;letter-spacing:-.03em}
+.fig-d{font-size:12.5px;color:var(--ink-60);margin-top:4px}
+.sowhat{background:var(--ink);color:var(--paper);border-radius:14px;padding:32px 34px;margin-top:40px}
+.sowhat .blk-h{color:var(--sky)}
+.sowhat p{font-size:16px;line-height:1.8;margin:0 0 12px}
+.sowhat p:last-child{margin-bottom:0}
+.pager{display:flex;justify-content:space-between;gap:14px;margin-top:44px;font-size:14px}
+.pager button{color:var(--ink-60)}
+.pager button:hover{color:var(--blue)}
+
+/* ── contact modal ── */
+.ov{position:fixed;inset:0;z-index:100;background:rgba(56,75,96,.55);backdrop-filter:blur(6px);
+  display:none;align-items:center;justify-content:center;padding:24px}
+.ov.on{display:flex;animation:in .25s var(--ease)}
+.modal{background:var(--paper);border-radius:18px;max-width:440px;width:100%;padding:38px 36px 32px;position:relative;
+  box-shadow:0 24px 60px rgba(56,75,96,.25)}
+.x{position:absolute;top:16px;right:18px;font-size:22px;color:var(--ink-40);line-height:1}
+.x:hover{color:var(--ink)}
+.modal h3{font-family:var(--serif);font-size:22px;font-weight:600;letter-spacing:-.02em;margin-bottom:16px}
+.modal .msg{font-size:15px;line-height:1.8;color:var(--ink-60);margin-bottom:26px}
+.field{display:block;font-size:12.5px;font-weight:700;color:var(--blue);margin-bottom:8px}
+.modal input{width:100%;padding:13px 15px;font:inherit;font-size:15px;border:1px solid var(--line);
+  border-radius:10px;background:var(--white);color:var(--ink)}
+.modal input:focus{outline:none;border-color:var(--blue)}
+.send{width:100%;margin-top:14px;background:var(--ink);color:var(--paper);padding:14px;border-radius:10px;
+  font-size:15px;font-weight:600;transition:background .2s var(--ease)}
+.send:hover{background:var(--blue)}
+.direct{display:block;text-align:center;margin-top:18px;font-size:13.5px;color:var(--ink-40)}
+.direct b{color:var(--ink-60);font-weight:600}
+.note{font-size:13px;color:var(--ink-40);margin-top:14px;line-height:1.7;text-align:center;min-height:1em}
+
+@media (max-width:860px){
+  .lede{white-space:normal}
+  .hero{padding-bottom:56px}
+  .caps{grid-template-columns:1fr}
+  .item{grid-template-columns:36px 1fr;gap:16px;padding:24px}
+  .arrow{display:none}
+  .wrap{padding:44px 20px 90px}
+  .file-v{height:380px}
+  .step{padding-left:32px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <button class="mark" onclick="go('home')">in <em>2026</em></button>
+    <div class="crumb" id="crumb"><span class="on">메인</span></div>
+  </div>
+</nav>
+
+<!-- ══ 1. 메인 ══ -->
+<section id="p-home" class="page on">
+  <div class="wrap">
+
+    <div class="hero">
+      <div class="eyebrow">What <em>jinny Lee</em> is doing</div>
+      <h1 class="title">in <em>2026</em></h1>
+      <p class="lede">데이터와 AI로 보다 효율적이고, 명확한 비즈니스 구조를 설계합니다.</p>
+      <p class="sub">성장하는 비즈니스 구조를 설계하기 위해서 마케터의 정성적인 감각에 데이터의 객관성을 더했습니다. 나아가 AI를 활용하여 업무의 효율성을 높이고 실무에 적용 가능한 비즈니스 감각을 강화했습니다.</p>
+      <div class="d-meta">
+        <span class="d-pill hi">국비수업 수료</span>
+        <span class="d-pill hi">SQLD 취득</span>
+        <span class="d-pill hi">사이드프로젝트</span>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-row">
+        <h2 class="sec-t">SKILL UP</h2>
+        <button class="linkgo" onclick="go('list')">프로젝트 보기 →</button>
+      </div>
+      <div class="caps">
+
+        <div class="cap">
+          <div class="cap-dot" style="background:#384B60"></div>
+          <div class="cap-n">데이터 분석</div>
+          <div class="cap-d">Python, SQLD, Amplitude 등 분석 툴에 대한 기술적 숙련도를 습득하고, AI를 활용하여 유의미한 데이터를 발굴하고 해석하는 역량을 강화했습니다.</div>
+          <div class="cap-hr"></div>
+          <div class="cap-l">Practical Approach</div>
+          <div class="cap-u">데이터를 직접 추출하고, 분석하여 문제 정의와 해결 방안에 대한 근거로 활용할 수 있습니다.</div>
+        </div>
+
+        <div class="cap">
+          <div class="cap-dot" style="background:#5E92C4"></div>
+          <div class="cap-n">AI 활용</div>
+          <div class="cap-d">AI를 실무 프로세스에 활용해 기획의 속도와 효율을 극대화하고, AI가 적용된 서비스와 기능을 기획합니다.</div>
+          <div class="cap-hr"></div>
+          <div class="cap-l">Practical Approach</div>
+          <div class="cap-u">리서치와 소재 검증의 시간을 줄이고, AI를 적용한 캠페인과 서비스를 기획할 수 있습니다.</div>
+        </div>
+
+        <div class="cap">
+          <div class="cap-dot" style="background:#BEDAFA"></div>
+          <div class="cap-n">기획력</div>
+          <div class="cap-d">마케팅을 넘어 수익성과 사업적 타당성(BM)까지 고려한 기획을 설계했습니다.</div>
+          <div class="cap-hr"></div>
+          <div class="cap-l">Practical Approach</div>
+          <div class="cap-u">신규 프로젝트와 사업 제안의 가능성을 감이 아닌 데이터를 근거로 도출할 수 있습니다.</div>
+        </div>
+
+      </div>
+      <button class="go" onclick="openContact()">Contact</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ 2. 프로젝트 목록 ══ -->
+<section id="p-list" class="page">
+  <div class="wrap">
+    <button class="back" onclick="go('home')">← 메인</button>
+    <h2 class="sec-t">PROJECTS</h2>
+    <div class="list" id="list"></div>
+
+    <div class="now">
+      <div class="now-h"><span class="now-dot"></span>What I am doing now</div>
+      <ul>
+        <li>Tableau 학습 진행 중</li>
+        <li>SQLD 실습 진행 중</li>
+        <li>마케팅 업무 자동화 구축 중</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 3. 프로젝트 상세 ══ -->
+<section id="p-detail" class="page">
+  <div class="wrap narrow" id="detail"></div>
+</section>
+
+<script>
+const P = [
+{
+  id:'ax', num:'01',
+  title:'AX 활용 데이터 분석 기획자 과정',
+  sub:'데이터 분석 결과를 의사결정과 서비스 기획에 활용할 수 있도록 AI 활용, 데이터 분석, 서비스 기획 역량을 결합한 실무 교육 프로그램',
+  short:'데이터와 시장 분석, AI를 활용하여 서비스와 기능을 기획',
+  chips:['데이터 분석','AI 활용','기획'],
+  meta:['성평등가족부 지원','데이터분석','AI활용'],
+  hi:'개인 프로젝트 3위',
+  blocks:[
+    {h:'Background', p:[
+      '빅데이터 분석 툴에 대한 기술적 숙련도와 이해도를 높이고, AI 기반의 효율적인 기획 실무 역량을 갖추기 위해 본 과정을 수료'
+    ]},
+    {h:'What I did', p:[
+      '데이터 분석과 AI를 활용하여 팀 과제로는 대중교통 서비스 개선을, 개인 과제는 갱년기 관리 서비스를 기획<br>두 과제 모두 전체 기획 흐름과 발표를 담당'
+    ]},
+    {h:'Projects', p:[
+      '새로운 서비스를 기획하는 대신 시장과 기존 서비스의 문제점을 보완하는 방향으로 기획'
+    ], steps:[
+      {
+        title:'팀 프로젝트 - 지하철 이용 서비스 개선',
+        desc:[
+          '대중교통 이용 데이터와 AI 기술을 접목하여, 출퇴근 시간대 지하철 혼잡도를 자발적으로 분산시키는 행동 유도형 서비스 기획',
+          '문제 정의 : 직관적인 "혼잡함"을 넘어, 서울시 공공데이터 및 지하철 승하차 인원 데이터를 분석하여 병목 현상이 발생하는 특정 시간대와 타깃 구간을 수치로 명확히 증명',
+          '활용 데이터 및 기술 : 공공데이터포털 지하철 혼잡도 API, Python(데이터 전처리 및 시각화), AI(혼잡도 예측 및 대체 경로 알고리즘)',
+          '해결 방안 : 사전 혼잡도 제공 ➔ 혼잡 회피 경로 사전 인증 ➔ 탑승 사후 인증 ➔ 포인트 지급으로 이어지는 촘촘한 단계별 검증 및 보상 로직 설계'
+        ],
+        slides:[
+          'proj1_1_1.png',
+          'proj1_1_2.png',
+          'proj1_1_3.png',
+          'proj1_1_4.png',
+          'proj1_1_5.png',
+          'proj1_1_6.png',
+          'proj1_1_7.png',
+          'proj1_1_8.png',
+          'proj1_1_9.png',
+          'proj1_1_10.png',
+          'proj1_1_11.png'
+        ]
+      },
+      {
+        title:'개인 프로젝트 - 갱년기 맞춤 관리 서비스 개선',
+        desc:[
+          '마케터의 정성적인 타깃 분석 감각에 데이터의 객관성을 더해, 갱년기 여성의 페인포인트를 해결하는 헬스케어 비즈니스 모델(BM) 기획',
+          '문제 정의 : 인구통계학적 데이터 및 헬스케어 소비 지표를 통해 갱년기 시장의 규모를 객관화하고, 기존 서비스들의 타겟팅 한계를 분석하여 명확한 시장 진입 기회 도출',
+          '활용 데이터 및 기술 : 건강보험심사평가원 의료 통계 데이터, 타깃 인터뷰',
+          '해결 방안 : AI 기반 맞춤형 건강 관리 솔루션을 제공하고, 단순 유입을 넘어 지속적인 결제가 일어날 수 있는 프리미엄 구독 기반의 수익 구조(BM) 설계',
+          '평가 피드백 : 시장 분석과 타깃이 공감할 수 있는 실질적인 문제 접근으로 마케팅적 접근법이라는 호평. 특히 타깃의 공감을 이끌어내는 타당성 있는 문제 정의와 직관적인 화면 구성(UI/UX)으로 높은 제작 점수 획득'
+        ],
+        slides:[
+          'proj1_2_1.png',
+          'proj1_2_3.png',
+          'proj1_2_4.png',
+          'proj1_2_5.png',
+          'proj1_2_6.png',
+          'proj1_2_7.png',
+          'proj1_2_8.png'
+        ]
+      }
+    ]}
+  ],
+  figs:[{v:'3위',d:'개인 프로젝트 발표'},{v:'2건',d:'서비스 기획안'},{v:'수료',d:'300시간 교육 과정 이수'}],
+  sowhat:'데이터 기반으로 기획서를 작성 및 제안하며, AI를 활용하여 기획의 완성도와 업무 효율을 극대화할 수 있습니다.'
+},
+{
+  id:'contest', num:'02',
+  title:'2026 국민행복 서비스 발굴 · 창업경진대회',
+  sub:'AI 기술을 활용하여 사회문제를 해결하고 실제 창업, 사업화가 가능한 아이디어를 제안<br>본 공모전에는 노인 복지와 관련하여 아이디어 제안',
+  short:'국비 수업에서 습득한 데이터 분석, AI 활용을 활용하여 노인 문제를 해결하는 방안을 제안',
+  chips:['기획','AI 활용'],
+  meta:['AI 서비스 기획','수익성(BM) 기획 담당'],
+  hi:'피드백 보완',
+  blocks:[
+    {h:'Background', p:[
+      'AX융합 데이터 기반 기획자 수업에서 습득한 데이터 분석, AI 등을 활용하여 기획 업무 감각을 유지<br>성장하는 실버 시장의 트렌드를 파악하고 문제를 정의하여 비즈니스적 가치를 창출하는 역량을 강화하기 위해 진행'
+    ]},
+    {h:'What I did', p:[
+      '데이터 분석을 통한 현 시장의 문제 정의, 마케팅 기획을 넘어 수익화를 고려한 사업화 모델(BM) 설계, 전체 플로우 점검 및 고도화'
+    ]},
+    {h:'Projects',
+      t:'비로그업 - 시니어 경력 기반 긱(Gig) 마켓 서비스',
+      p:[
+        '은퇴 후 경력을 살린 부업을 원하는 베이비부머와 검증된 인력이 필요한 의뢰자를 연결하는 시니어 전용 긱 마켓 기획'
+      ],
+      li:[
+        '문제 정의 : 퇴직 연령(52.9세)과 희망 근로 연령(73.4세) 사이 약 20년의 공백 속에서, 공공 일자리는 내용·보상·형태 모두 수요와 어긋나고 기존 긱 마켓은 디지털 장벽과 신뢰 검증 부재로 시니어가 진입하지 못하는 구조',
+        '활용 데이터 : 통계청 고령층 부가조사(2025), 보건복지부 노인일자리 사업 통계·운영안내, 국회예산정책처, 자체 수요조사(n=100)',
+        '해결 방안 : AI 경력 진단·비공식 경험 추출·수료증 발급으로 역량을 검증하고, 음성·카카오톡 기반 Zero-UI로 등록 문턱을 낮춰 거래 수수료·B2B 전직 지원·B2G 교육 납품으로 수익화'
+      ],
+      slides:[
+        'proj2_1_1.png',
+        'proj2_1_2.png',
+        'proj2_1_3.png',
+        'proj2_1_4.png'
+      ],
+      links:[
+        {href:'https://claude.ai/public/artifacts/523d5bd1-b4c6-4371-a6ee-8201638808da', name:'비로그업 서비스 예시 랜딩 페이지'}
+      ]
+    },
+    {h:'Feedback', p:[
+      '본선 미진출 → 강사 피드백 : 서비스가 애매모호하다.<br>서비스의 초기 사업 가능성에 초점을 맞추다보니 본 서비스의 핵심 가치(Core Value)인 ‘부업’ 키워드가 약화되어 기존 정부 주도 노인 일자리 사업과의 차별성이 모호해지는 한계점 발견'
+    ], table:{
+      head:['구분','Before (초안)','After (피드백 반영)'],
+      rows:[
+        ['제안 배경 재구성', '인구 구조 → 은퇴 크레바스 → 수요·공급 괴리 → 시장 한계를 나열식으로 서술', '수요·공급의 괴리와 시장의 한계에 초점<br>시니어의 전문성을 살릴 공공 일자리는 부재, 조건에 맞는 민간 플랫폼은 디지털 장벽으로 진입이 어려운 공백 발견 강조'],
+        ['핵심가치 ‘부업’ 강조', '은퇴 크레바스 부업 수요지수(2.41) 계산식 하나로 수요 니즈를 증명', '시간제 희망 47.5%, 유연근무 선호 68.9%, 공공 일자리 참여자의 ‘부수적 용돈’ 목적 23.2% 등을 근거로 ‘긱’ 형태의 선호도를 정의'],
+        ['문제 구조화', '공익활동형 편중(63%, 월 29만 원)을 기존 사업의 한계로 서술', '희망과 현실의 3중 미스매치 표로 재구성<br>일의 형태, 보상, 시간의 차이를 시각적으로 표현'],
+        ['추가된 근거', '—', '공익활동형 1일 3시간 상한 규정, 배치 기준이 건강·체력(65.8%) 중심이고 경력 고려는 2.8%<br>→ 공급 부족이 아니라 제도적으로 보완이 필요한 상황'],
+        ['기존 긱 마켓 분석', '디지털 문턱과 신뢰 리스크를 한 문단으로 서술', '‘시장은 있지만 진입 방법이 없다’로 정리하고 디지털 장벽(60.6%)과 신뢰 검증 부재로 원인을 분리'],
+        ['타깃 설정', '2차 베이비부머 954만 명에서 비율을 곱해 239만 명 추산', '55~65세·15년 이상 경력·스마트폰 사용 가능한 ‘구조적 중간층’으로 구체화, 65세 상한은 디지털 역량 격차(60대 2.85점 vs 70대 1.94점)로 근거 제시'],
+        ['사업 타당성', '수요지수와 매출 시나리오(연 2.3억 → 124억) 중심', '이미 지불이 일어나는 영역(사회서비스형 12.4만 개, 지역사회 통합돌봄법)에서 출발<br>수요자 검증 항목, PoC 가설(재거래율 30% 등), 초기 실증 범위를 명시']
+      ]
+    }}
+  ],
+  figs:[{v:'2건',d:'기획안 원본 및 재작성본'},{v:'1건',d:'서비스 가상 랜딩페이지'}],
+  sowhat:'마케팅적인 관점을 넘어 데이터를 근거로 사업의 수익성과 타당성을 검증할 수 있습니다. 단기적인 모객과 프로모션이 아닌 사업의 시장 안착과 지속적인 수익성을 고려한 장기적인 비즈니스 성장구조를 설계할 수 있습니다.'
+},
+{
+  id:'amp', num:'03',
+  title:'프로덕트 분석 실습 (Amplitude)',
+  sub:'사용자의 행동 로그를 설계하고, 앰플리튜드를 통해 데이터를 분석 및 테스트를 설계하는 과정',
+  short:'로그를 설계하고 해석하여 문제를 정의하고, 해결 방안을 도출',
+  chips:['데이터 분석'],
+  meta:['Amplitude','이벤트 로그 설계'],
+  hi:'개인 실습',
+  blocks:[
+    {h:'Background', p:[
+      '앰플리튜드(Amplitude)의 기술적 활용법을 익히고, 유저 로그 분석을 통해 비즈니스 성장에 직결되는 인사이트를 도출하는 역량을 강화하여 앱 마케팅 실무 경험에 데이터 기반의 그로스(Growth)적인 비즈니스 시야를 확장하기 위해 본 과정을 수료'
+    ]},
+    {h:'What I did', p:[
+      '커머스 앱의 Tracking Plan을 설계하여 데이터를 정의하고, 음악 스트리밍 서비스의 활성 유저가 줄어든 원인을 분석'
+    ]},
+    {h:'Projects', steps:[
+      {
+        title:'1주차 - 지표 정의하기',
+        desc:[
+          '커머스(패션) 앱의 메인 페이지와 카테고리 페이지에 대한 Tracking Plan을 설계<br>배너, 상품의 노출, 클릭률 측정 방식을 정의하여 기획자·개발자·분석가 사이의 해석 차이를 제거',
+          '지표의 정교화 : 클릭률의 분모를 pageview가 아닌 impression으로 정의<br>좌우 스크롤, 상품 리스팅과 같은 무한 스크롤은 한 페이지에서 전체 상품이 확인되지 않아 후순위 상품일수록 클릭률이 낮게 나와 영역 간 비교가 무의미 → 노출로 클릭률을 분석하고, 후순위까지의 탐색은 product_index별 노출수로 지표를 별도 정의',
+          '실무 경험 연계 : 마케팅 광고 운영 경험을 바탕으로 노출 기준을 이미지 50% 이상, 1초 이상으로 규정<br>→ Trigger를 구체적으로 정의한 점은 개발자가 같은 기준으로 구현하는 데 도움이 된다는 긍정 평가',
+          '비즈니스 요구사항 반영 : "어느 카테고리 페이지가 가장 인기 있는가"를 확인하기 위해, 카테고리 탭을 전환해도 데이터가 측정되도록 pageview로 정의',
+          'AI 활용 및 오류 재검증 → 5점대의 높은 평가'
+        ],
+        imgs:[
+          {src:'proj3_1.png', cap:'커머스 앱 Tracking Plan (메인·카테고리 페이지)'}
+        ]
+      },
+      {
+        title:'2주차 - 로그를 직접 읽기',
+        desc:[
+          '음악 스트리밍 서비스의 유·무료 플랜별 리텐션을 비교하여 유료 혜택의 매력도를 점검<br>전체 세그먼트에서 3월을 기점으로 발생한 활성 유저 급감 현상을 발견하고, 그 원인을 UTM 캠페인 유입과 앱 버전(Version) 단위로 쪼개어 추적',
+          '이상 지표를 빠르게 캐치하고, 여러 변수로 차원을 넘나들며 원인의 범위를 좁혀가는 가설 수립 및 탐색 속도가 돋보인다는 긍정적인 평가',
+          '빠른 탐색 속도 이면에, 현상과 원인 가설 사이를 단단하게 연결해 줄 확인 차트(중간 검증)가 누락 → 보완 필요'
+        ],
+        slides:[
+          'proj3_2_1.png',
+          'proj3_2_2.png',
+          'proj3_2_3.png',
+          'proj3_2_4.png'
+        ]
+      }
+    ]}
+  ],
+  figs:[{v:'2건',d:'개인 실습 과제물'},{v:'4.3점',d:'개인 실습 평가'}],
+  sowhat:'지표 하락의 원인을 빠르게 파악하고, 기존의 직관에 데이터 근거를 더해 리소스를 줄여 정확한 의사결정을 내리는 데 기여할 수 있습니다.<br><br>단편적인 지표의 이면을 파악하는 점을 보완하여, 분석 단계의 정밀도를 높이는 기획의 기준을 세울 수 있습니다.'
+}
+];
+
+/* 목록 렌더 */
+document.getElementById('list').innerHTML = P.map((p,i)=>`
+  <button class="item" onclick="go('detail',${i})">
+    <div class="num">${p.num}</div>
+    <div>
+      <h3>${p.title}</h3>
+      <p>${p.short}</p>
+      <div class="chips">${p.chips.map(c=>`<span class="chip">${c}</span>`).join('')}${p.hi?`<span class="chip" style="background:#384B60;color:#F8F7F2">${p.hi}</span>`:''}</div>
+    </div>
+    <div class="arrow">→</div>
+  </button>`).join('');
+
+/* 이미지 렌더 (문자열 또는 {src, cap} 모두 가능) */
+function shotsHTML(list){
+  if(!list || !list.length) return '';
+  return `<div class="shots">${list.map(it=>{
+    const s = typeof it==='string' ? {src:it} : it;
+    return `<figure class="shot">
+      <button type="button" onclick="openImg('${encodeURI(s.src)}')" aria-label="이미지 크게 보기">
+        <img src="${encodeURI(s.src)}" alt="${s.cap||''}" loading="lazy">
+      </button>
+      ${s.cap?`<figcaption>${s.cap}</figcaption>`:''}
+    </figure>`;
+  }).join('')}</div>`;
+}
+
+/* 첨부 파일 렌더 ({src, name, view}) */
+function filesHTML(list){
+  if(!list || !list.length) return '';
+  return `<div class="files">${list.map(f=>{
+    const url = encodeURI(f.src);
+    const ext = (f.src.split('.').pop()||'').toUpperCase();
+    return `<div>
+      <a class="file-a" href="${url}" target="_blank" rel="noopener">
+        <span class="file-ic">${ext}</span>
+        <span>${f.name||f.src}</span>
+        <span class="file-go">새 창에서 열기 ↗</span>
+      </a>
+      ${f.view?`<iframe class="file-v" src="${url}" title="${f.name||'첨부 파일'}" loading="lazy" style="margin-top:10px"></iframe>`:''}
+    </div>`;
+  }).join('')}</div>`;
+}
+
+/* 슬라이드 렌더 */
+let slSeq = 0;
+function slidesHTML(list){
+  if(!list || !list.length) return '';
+  const id = 'sl' + (slSeq++);
+  return `<div class="sl" id="${id}" data-i="0" data-n="${list.length}">
+    <div class="sl-view" ontouchstart="slTouchStart(event)" ontouchend="slTouchEnd(event,'${id}')">
+      <div class="sl-track">
+        ${list.map((src,k)=>`<img src="${encodeURI(src)}" alt="슬라이드 ${k+1}" loading="lazy" draggable="false" onclick="openImg('${encodeURI(src)}')">`).join('')}
+      </div>
+      <button type="button" class="sl-btn sl-prev" onclick="slGo('${id}',-1)" aria-label="이전 장표" disabled>‹</button>
+      <button type="button" class="sl-btn sl-next" onclick="slGo('${id}',1)" aria-label="다음 장표" ${list.length<2?'disabled':''}>›</button>
+    </div>
+    <div class="sl-bar">
+      <div class="sl-dots">${list.map((_,k)=>`<button type="button" class="sl-dot${k===0?' on':''}" onclick="slGo('${id}',0,${k})" aria-label="${k+1}번 장표"></button>`).join('')}</div>
+      <span class="sl-count">1 / ${list.length}</span>
+    </div>
+  </div>`;
+}
+function slGo(id, dir, to){
+  const el = document.getElementById(id); if(!el) return;
+  const n = +el.dataset.n;
+  let i = (to!==undefined) ? to : +el.dataset.i + dir;
+  i = Math.max(0, Math.min(n-1, i));
+  el.dataset.i = i;
+  el.querySelector('.sl-track').style.transform = `translateX(-${i*100}%)`;
+  el.querySelector('.sl-prev').disabled = i===0;
+  el.querySelector('.sl-next').disabled = i===n-1;
+  el.querySelectorAll('.sl-dot').forEach((d,k)=>d.classList.toggle('on', k===i));
+  el.querySelector('.sl-count').textContent = `${i+1} / ${n}`;
+}
+let slX = 0;
+function slTouchStart(e){ slX = e.changedTouches[0].clientX; }
+function slTouchEnd(e,id){
+  const dx = e.changedTouches[0].clientX - slX;
+  if(Math.abs(dx) > 40) slGo(id, dx < 0 ? 1 : -1);
+}
+
+/* 링크 렌더 ({href, name}) */
+function linksHTML(list){
+  if(!list || !list.length) return '';
+  return `<div class="links">${list.map(l=>`
+    <a class="file-a" href="${l.href}" target="_blank" rel="noopener">
+      <span class="file-ic link">LINK</span>
+      <span>${l.name||l.href}</span>
+      <span class="file-go">바로가기 ↗</span>
+    </a>`).join('')}</div>`;
+}
+
+/* 표 렌더 ({head:[], rows:[[]]}) */
+function tableHTML(t){
+  if(!t || !t.rows) return '';
+  return `<div class="tbl-wrap"><table class="tbl">
+    ${t.head?`<thead><tr>${t.head.map(c=>`<th>${c}</th>`).join('')}</tr></thead>`:''}
+    <tbody>${t.rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody>
+  </table></div>`;
+}
+
+/* 상세 렌더 */
+function renderDetail(i){
+  const p = P[i];
+  const prev = i>0 ? `<button onclick="go('detail',${i-1})">← ${P[i-1].title}</button>` : '<span></span>';
+  const next = i<P.length-1 ? `<button onclick="go('detail',${i+1})">${P[i+1].title} →</button>` : '<span></span>';
+  document.getElementById('detail').innerHTML = `
+    <button class="back" onclick="go('list')">← 프로젝트</button>
+    <div class="d-head">
+      <div class="d-tag">${p.num}</div>
+      <h1 class="d-title">${p.title}</h1>
+      <p class="d-sub">${p.sub}</p>
+      <div class="d-meta">
+        ${p.meta.map(m=>`<span class="d-pill">${m}</span>`).join('')}
+        ${p.hi?`<span class="d-pill hi">${p.hi}</span>`:''}
+      </div>
+    </div>
+    ${p.blocks.map(b=>`
+      <div class="blk">
+        <div class="blk-h">${b.h}</div>
+        ${b.t?`<div class="blk-t">${b.t}</div>`:''}
+        ${(b.p||[]).map(t=>`<p>${t}</p>`).join('')}
+        ${b.li?`<ul class="blk-l">${b.li.map(t=>`<li>${t}</li>`).join('')}</ul>`:''}
+        ${b.steps?`<div class="steps">${b.steps.map(s=>
+          typeof s==='string'
+            ? `<div class="step">${s}</div>`
+            : `<div class="step">
+                 <div class="step-t">${s.title}</div>
+                 ${s.desc?`<ul class="step-d">${s.desc.map(d=>`<li>${d}</li>`).join('')}</ul>`:''}
+                 ${shotsHTML(s.imgs)}
+                 ${slidesHTML(s.slides)}
+                 ${filesHTML(s.files)}
+                 ${linksHTML(s.links)}
+               </div>`
+        ).join('')}</div>`:''}
+        ${b.after?b.after.map(t=>`<p style="margin-top:18px">${t}</p>`).join(''):''}
+        ${b.quote?`<div class="quote">${b.quote}</div>`:''}
+        ${shotsHTML(b.imgs)}
+        ${slidesHTML(b.slides)}
+        ${tableHTML(b.table)}
+        ${filesHTML(b.files)}
+        ${linksHTML(b.links)}
+      </div>`).join('')}
+    <div class="blk">
+      <div class="blk-h">Result</div>
+      <div class="figs">${p.figs.map(f=>`<div class="fig"><div class="fig-v">${f.v}</div><div class="fig-d">${f.d}</div></div>`).join('')}</div>
+      ${shotsHTML(p.imgs)}
+      ${slidesHTML(p.slides)}
+      ${filesHTML(p.files)}
+      ${linksHTML(p.links)}
+    </div>
+    <div class="sowhat">
+      <div class="blk-h">Practical Approach</div>
+      <p>${p.sowhat}</p>
+    </div>
+    <div class="pager">${prev}${next}</div>`;
+}
+
+/* 라우팅 */
+window.addEventListener('DOMContentLoaded', ()=>go('home'));
+
+function go(name, i){
+  ['home','list','detail'].forEach(n=>document.getElementById('p-'+n).classList.remove('on'));
+  if(name==='detail'){ renderDetail(i); }
+  document.getElementById('p-'+name).classList.add('on');
+  window.scrollTo(0,0);
+  const c = document.getElementById('crumb');
+  if(name==='home') c.innerHTML = '<span class="on">메인</span>';
+  if(name==='list') c.innerHTML = '<span>메인</span><span>/</span><span class="on">프로젝트</span>';
+  if(name==='detail') c.innerHTML = `<span>메인</span><span>/</span><span>프로젝트</span><span>/</span><span class="on">${P[i].title}</span>`;
+}
+</script>
+
+<!-- ══ 이미지 크게 보기 ══ -->
+<div class="lb" id="lb" onclick="closeImg()">
+  <button class="x" aria-label="닫기">×</button>
+  <img id="lb-img" src="" alt="">
+</div>
+
+<!-- ══ Contact ══ -->
+<div class="ov" id="ov" onclick="if(event.target===this)closeContact()">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="연락하기">
+    <button class="x" onclick="closeContact()" aria-label="닫기">×</button>
+    <h3>CONTACT</h3>
+    <p class="msg">장기적인 브랜딩 전략과 그로스적 성장 구조를 설계하는 9년차 마케터입니다. 함께 일해보고 싶으시다면 편하게 연락주세요!</p>
+    <label class="field" for="mail">메일 주소를 남겨주시면 빠르게 회신드리겠습니다.</label>
+    <input id="mail" type="email" placeholder="name@company.com" autocomplete="email" onkeydown="if(event.key==='Enter')sendReq()">
+    <button class="send" onclick="sendReq()">확인</button>
+    <p class="note" id="note"></p>
+    <span class="direct">바로 연락하시려면 <b id="direct">your@email.com</b></span>
+  </div>
+</div>
+
+<script>
+/* ↓ 두 곳을 본인 것으로 바꾸세요 */
+const MY_MAIL  = 'jinhee_lee91@naver.com';                 // 직접 연락용 메일
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwZToyZklBXSUWHGRV2YCYdxFAcTWa2lbJBO5CfUQ2cPN3NV9-DI4xKDofBxiHK5NzEPw/exec';                              // 앱스 스크립트 웹 앱 URL (.../exec)
+document.getElementById('direct').textContent = MY_MAIL;
+
+function openContact(){ document.getElementById('ov').classList.add('on'); setTimeout(()=>document.getElementById('mail').focus(),120); }
+function closeContact(){ document.getElementById('ov').classList.remove('on'); }
+document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ closeContact(); closeImg(); } });
+
+function openImg(src){ document.getElementById('lb-img').src = src; document.getElementById('lb').classList.add('on'); }
+function closeImg(){ document.getElementById('lb').classList.remove('on'); }
+
+/* 우클릭 · 드래그 차단 */
+document.addEventListener('contextmenu', e=>{ if(!e.target.closest('.modal')) e.preventDefault(); });
+document.addEventListener('dragstart', e=>e.preventDefault());
+document.addEventListener('selectstart', e=>{
+  if(!e.target.closest('input,textarea,.modal')) e.preventDefault();
+});
+document.addEventListener('contextmenu', e=>{
+  if(e.target.closest('.modal')) e.stopPropagation();
+}, true);
+
+function sendReq(){
+  const input = document.getElementById('mail');
+  const note = document.getElementById('note');
+  const btn = document.querySelector('.send');
+  const v = input.value.trim();
+
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){
+    note.textContent = '메일 주소를 다시 확인해주세요.';
+    return;
+  }
+
+  if(!SHEET_URL || SHEET_URL.indexOf('script.google.com') === -1){
+    note.textContent = '연결 준비 중입니다. ' + MY_MAIL + '로 연락 부탁드립니다.';
+    return;
+  }
+
+  btn.disabled = true;
+  note.textContent = '보내는 중...';
+
+  fetch(SHEET_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify({ mail: v, note: '', ref: location.href })
+  })
+  .then(()=>{
+    note.textContent = '감사합니다. 확인 후 이력서와 경력기술서를 보내드리겠습니다.';
+    input.value = '';
+  })
+  .catch(()=>{
+    note.textContent = '전송에 실패했습니다. ' + MY_MAIL + '로 연락 부탁드립니다.';
+  })
+  .finally(()=>{ btn.disabled = false; });
+}
+</script>
+</body>
+</html>
