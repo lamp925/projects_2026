@@ -46,8 +46,9 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   border-bottom:1px solid var(--line);display:flex;align-items:center}
 .nav-in{width:100%;max-width:960px;margin:0 auto;padding:0 28px;
   display:flex;align-items:center;justify-content:space-between;gap:16px}
-.mark{font-family:var(--serif);font-size:20px;font-weight:600;letter-spacing:-.01em}
-.mark em{font-style:normal;font-weight:600;color:var(--ink)}
+.mark{font-size:14px;font-weight:500;letter-spacing:-.02em;color:var(--ink-60);
+  text-align:left;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mark em{font-style:normal;font-weight:700;color:var(--ink)}
 .crumb{font-size:13px;color:var(--ink-40);display:flex;gap:8px;align-items:center;min-width:0}
 .crumb span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .crumb .on{color:var(--ink)}
@@ -84,8 +85,9 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .caps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .cap{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:26px 24px;
   display:flex;flex-direction:column;gap:14px}
-.cap-dot{width:26px;height:26px;border-radius:50%}
-.cap-n{font-size:17px;font-weight:700;letter-spacing:-.02em}
+.cap-n{font-size:16px;font-weight:700;letter-spacing:-.02em;color:var(--ink);
+  align-self:flex-start;padding:7px 16px;border-radius:20px;
+  background:rgba(190,218,250,.45)}
 .cap-d{font-size:14px;color:var(--ink-60);line-height:1.7}
 .cap-hr{height:1px;background:var(--line)}
 .cap-l{font-size:12px;font-weight:700;color:var(--blue)}
@@ -246,6 +248,8 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 
 @media (max-width:860px){
   .lede{white-space:normal}
+  .mark{font-size:15px}
+  .mark-long{display:none}
   .hero{padding-bottom:56px}
   .caps{grid-template-columns:1fr}
   .item{grid-template-columns:36px 1fr;gap:16px;padding:24px}
@@ -260,7 +264,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 
 <nav class="nav">
   <div class="nav-in">
-    <button class="mark" onclick="go('home')">in <em>2026</em></button>
+    <button class="mark" onclick="go('home')"><span class="mark-long">장기적인 브랜딩 관점과 데이터 기반의 그로스 구조를 설계하는 마케터, </span><em>jinny Lee</em></button>
     <div class="crumb" id="crumb"><span class="on">메인</span></div>
   </div>
 </nav>
@@ -273,7 +277,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
       <div class="eyebrow">What <em>jinny Lee</em> is doing</div>
       <h1 class="title">in <em>2026</em></h1>
       <p class="lede">데이터와 AI로 보다 효율적이고, 명확한 비즈니스 구조를 설계합니다.</p>
-      <p class="sub">성장하는 비즈니스 구조를 설계하기 위해서 마케터의 정성적인 감각에 데이터의 객관성을 더했습니다. 나아가 AI를 활용하여 업무의 효율성을 높이고 실무에 적용 가능한 비즈니스 감각을 강화했습니다.</p>
+      <p class="sub">성장하는 비즈니스 구조를 설계하기 위해서 마케터의 정성적인 감각에 데이터의 객관성을 더했습니다. 나아가 AI를 활용하여 업무의 효율성을 높이고 실무에 적용 가능한 업무 감각을 유지했습니다.</p>
       <div class="d-meta">
         <span class="d-pill hi">국비수업 수료</span>
         <span class="d-pill hi">SQLD 취득</span>
@@ -289,7 +293,6 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
       <div class="caps">
 
         <div class="cap">
-          <div class="cap-dot" style="background:#384B60"></div>
           <div class="cap-n">데이터 분석</div>
           <div class="cap-d">Python, SQLD, Amplitude 등 분석 툴에 대한 기술적 숙련도를 습득하고, AI를 활용하여 유의미한 데이터를 발굴하고 해석하는 역량을 강화했습니다.</div>
           <div class="cap-hr"></div>
@@ -298,7 +301,6 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
         </div>
 
         <div class="cap">
-          <div class="cap-dot" style="background:#5E92C4"></div>
           <div class="cap-n">AI 활용</div>
           <div class="cap-d">AI를 실무 프로세스에 활용해 기획의 속도와 효율을 극대화하고, AI가 적용된 서비스와 기능을 기획합니다.</div>
           <div class="cap-hr"></div>
@@ -307,7 +309,6 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
         </div>
 
         <div class="cap">
-          <div class="cap-dot" style="background:#BEDAFA"></div>
           <div class="cap-n">기획력</div>
           <div class="cap-d">마케팅을 넘어 수익성과 사업적 타당성(BM)까지 고려한 기획을 설계했습니다.</div>
           <div class="cap-hr"></div>
@@ -698,18 +699,18 @@ function go(name, i){
   <div class="modal" role="dialog" aria-modal="true" aria-label="연락하기">
     <button class="x" onclick="closeContact()" aria-label="닫기">×</button>
     <h3>CONTACT</h3>
-    <p class="msg">장기적인 브랜딩 전략과 그로스적 성장 구조를 설계하는 9년차 마케터입니다. 함께 일해보고 싶으시다면 편하게 연락주세요!</p>
+    <p class="msg">장기적인 브랜딩 전략과 그로스적인 구조를 설계하는 9년차 마케터입니다. 함께 일해보고 싶으시다면 편하게 연락주세요!</p>
     <label class="field" for="mail">메일 주소를 남겨주시면 빠르게 회신드리겠습니다.</label>
     <input id="mail" type="email" placeholder="name@company.com" autocomplete="email" onkeydown="if(event.key==='Enter')sendReq()">
     <button class="send" onclick="sendReq()">확인</button>
     <p class="note" id="note"></p>
-    <span class="direct">바로 연락하시려면 <b id="direct">your@email.com</b></span>
+    <span class="direct">바로 연락하시려면 <b id="direct">jinhee_lee91@naver.com</b></span>
   </div>
 </div>
 
 <script>
 /* ↓ 두 곳을 본인 것으로 바꾸세요 */
-const MY_MAIL  = 'jinhee_lee91@naver.com';                 // 직접 연락용 메일
+const MY_MAIL  = 'your@email.com';                 // 직접 연락용 메일
 const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwZToyZklBXSUWHGRV2YCYdxFAcTWa2lbJBO5CfUQ2cPN3NV9-DI4xKDofBxiHK5NzEPw/exec';                              // 앱스 스크립트 웹 앱 URL (.../exec)
 document.getElementById('direct').textContent = MY_MAIL;
 
