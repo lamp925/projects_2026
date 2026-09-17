@@ -264,7 +264,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 
 <nav class="nav">
   <div class="nav-in">
-    <button class="mark" onclick="go('home')"><span class="mark-long">장기적인 브랜딩 관점과 데이터 기반의 그로스 구조를 설계하는 마케터, </span><em>jinny Lee</em></button>
+    <button class="mark" onclick="go('home')"><span class="mark-long">브랜딩과 그로스 구조를 설계하는 마케터, </span><em> jinny Lee </em></button>
     <div class="crumb" id="crumb"><span class="on">메인</span></div>
   </div>
 </nav>
@@ -704,13 +704,13 @@ function go(name, i){
     <input id="mail" type="email" placeholder="name@company.com" autocomplete="email" onkeydown="if(event.key==='Enter')sendReq()">
     <button class="send" onclick="sendReq()">확인</button>
     <p class="note" id="note"></p>
-    <span class="direct">바로 연락하시려면 <b id="direct">jinhee_lee91@naver.com</b></span>
+    <span class="direct">바로 연락하시려면 <b id="direct">your@email.com</b></span>
   </div>
 </div>
 
 <script>
 /* ↓ 두 곳을 본인 것으로 바꾸세요 */
-const MY_MAIL  = 'your@email.com';                 // 직접 연락용 메일
+const MY_MAIL  = 'jinhee_lee91@naver.com';                 // 직접 연락용 메일
 const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwZToyZklBXSUWHGRV2YCYdxFAcTWa2lbJBO5CfUQ2cPN3NV9-DI4xKDofBxiHK5NzEPw/exec';                              // 앱스 스크립트 웹 앱 URL (.../exec)
 document.getElementById('direct').textContent = MY_MAIL;
 
